@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django import template
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
 
 
 register = template.Library()
@@ -18,7 +18,7 @@ def render_solr_field(field):
     ]
 
     # use sorted dict to keep consistency
-    attributes = SortedDict()
+    attributes = OrderedDict()
     attributes['name'] = field['field_name']
     attributes['type'] = field['type']
     attributes['indexed'] = field['indexed']
